@@ -2,8 +2,8 @@ package ac.grim.grimac.predictionengine;
 
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.checks.Check;
-import ac.grim.grimac.checks.impl.movement.EntityControl;
-import ac.grim.grimac.checks.impl.prediction.Phase;
+import ac.grim.grimac.checks.impl.movement.misc.EntityControl;
+import ac.grim.grimac.checks.impl.movement.prediction.Phase;
 import ac.grim.grimac.checks.type.PositionCheck;
 import ac.grim.grimac.manager.SetbackTeleportUtil;
 import ac.grim.grimac.player.GrimPlayer;

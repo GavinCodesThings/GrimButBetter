@@ -1,28 +1,37 @@
 package ac.grim.grimac.manager;
 
 import ac.grim.grimac.AbstractCheck;
-import ac.grim.grimac.checks.impl.aim.AimDuplicateLook;
-import ac.grim.grimac.checks.impl.aim.AimModulo360;
-import ac.grim.grimac.checks.impl.aim.processor.AimProcessor;
-import ac.grim.grimac.checks.impl.badpackets.*;
-import ac.grim.grimac.checks.impl.baritone.Baritone;
-import ac.grim.grimac.checks.impl.combat.Reach;
-import ac.grim.grimac.checks.impl.crash.*;
+import ac.grim.grimac.checks.impl.combat.aim.AimDuplicateLook;
+import ac.grim.grimac.checks.impl.combat.aim.AimModulo360;
+import ac.grim.grimac.checks.impl.combat.aim.processor.AimProcessor;
+import ac.grim.grimac.checks.impl.combat.autoblock.AutoblockA;
+import ac.grim.grimac.checks.impl.exploit.badpackets.*;
+import ac.grim.grimac.checks.impl.world.baritone.Baritone;
+import ac.grim.grimac.checks.impl.combat.reach.Reach;
+import ac.grim.grimac.checks.impl.exploit.crash.*;
 import ac.grim.grimac.checks.impl.exploit.ExploitA;
 import ac.grim.grimac.checks.impl.exploit.ExploitB;
-import ac.grim.grimac.checks.impl.groundspoof.NoFallA;
+import ac.grim.grimac.checks.impl.player.timer.nofall.NoFallA;
 import ac.grim.grimac.checks.impl.misc.ClientBrand;
 import ac.grim.grimac.checks.impl.misc.FastBreak;
 import ac.grim.grimac.checks.impl.misc.TransactionOrder;
-import ac.grim.grimac.checks.impl.movement.*;
-import ac.grim.grimac.checks.impl.post.PostCheck;
-import ac.grim.grimac.checks.impl.prediction.DebugHandler;
-import ac.grim.grimac.checks.impl.prediction.NoFallB;
-import ac.grim.grimac.checks.impl.prediction.OffsetHandler;
-import ac.grim.grimac.checks.impl.prediction.Phase;
-import ac.grim.grimac.checks.impl.scaffolding.*;
-import ac.grim.grimac.checks.impl.velocity.ExplosionHandler;
-import ac.grim.grimac.checks.impl.velocity.KnockbackHandler;
+import ac.grim.grimac.checks.impl.movement.misc.EntityControl;
+import ac.grim.grimac.checks.impl.movement.misc.SetbackBlocker;
+import ac.grim.grimac.checks.impl.movement.noslow.prediction.NoSlowA;
+import ac.grim.grimac.checks.impl.movement.noslow.NoSlowB;
+import ac.grim.grimac.checks.impl.movement.prediction.PredictionRunner;
+import ac.grim.grimac.checks.impl.movement.prediction.VehiclePredictionRunner;
+import ac.grim.grimac.checks.impl.player.timer.NegativeTimerCheck;
+import ac.grim.grimac.checks.impl.player.timer.TimerCheck;
+import ac.grim.grimac.checks.impl.player.timer.VehicleTimer;
+import ac.grim.grimac.checks.impl.player.timer.scaffold.*;
+import ac.grim.grimac.checks.impl.exploit.post.PostCheck;
+import ac.grim.grimac.checks.impl.movement.prediction.DebugHandler;
+import ac.grim.grimac.checks.impl.player.timer.nofall.prediction.NoFallB;
+import ac.grim.grimac.checks.impl.movement.prediction.OffsetHandler;
+import ac.grim.grimac.checks.impl.movement.prediction.Phase;
+import ac.grim.grimac.checks.impl.combat.velocity.ExplosionHandler;
+import ac.grim.grimac.checks.impl.combat.velocity.KnockbackHandler;
 import ac.grim.grimac.checks.type.*;
 import ac.grim.grimac.events.packets.PacketChangeGameState;
 import ac.grim.grimac.events.packets.PacketEntityReplication;
@@ -80,6 +89,7 @@ public class CheckManager {
                 .put(BadPacketsN.class, new BadPacketsN(player))
                 .put(BadPacketsP.class, new BadPacketsP(player))
                 .put(BadPacketsQ.class, new BadPacketsQ(player))
+                .put(AutoblockA.class, new AutoblockA(player))
                 .put(PostCheck.class, new PostCheck(player))
                 .put(FastBreak.class, new FastBreak(player))
                 .put(TransactionOrder.class, new TransactionOrder(player))
